@@ -1,2 +1,21 @@
 @import "tailwindcss";
 @import "./style.css"
+
+@theme {
+    --color-primary: #00D09C;
+    --color-primary-dark: #00a37a;
+}
+
+@layer components {
+    .btn-primary {
+        border-radius: 4px;
+        background-color: #00D09c;
+        padding-inline: --spacing-(6);
+        padding-block: --spacing-(2);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-white);
+        &hover {
+            background-color: #00a37a;
+        }
+    }
+}
