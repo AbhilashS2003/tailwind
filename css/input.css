@@ -1,5 +1,6 @@
+@import "./style.css";
 @import "tailwindcss";
-@import "./style.css"
+
 
 @theme {
     --color-primary: #00D09C;
@@ -9,13 +10,15 @@
 @layer components {
     .btn-primary {
         border-radius: 4px;
-        background-color: #00D09c;
+        background-color: var(--color-primary);
         padding-inline: --spacing-(6);
         padding-block: --spacing-(2);
         font-weight: var(--font-weight-semibold);
         color: var(--color-white);
-        &hover {
-            background-color: #00a37a;
-        }
     }
+    .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        cursor: pointer;
+    }
+    
 }
