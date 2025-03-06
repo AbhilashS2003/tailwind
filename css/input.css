@@ -1,6 +1,8 @@
 @import "./style.css";
 @import "tailwindcss";
-
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 
 @theme {
     --color-primary: #00D09C;
@@ -15,10 +17,11 @@
         padding-block: --spacing-(2);
         font-weight: var(--font-weight-semibold);
         color: var(--color-white);
-    }
-    .btn-primary:hover {
-        background-color: var(--color-primary-dark);
-        cursor: pointer;
+        &:hover{
+            background-color: var(--color-primary-dark);
+            cursor: pointer;
+        }
+        
     }
     
 }
