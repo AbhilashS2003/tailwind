@@ -10,7 +10,7 @@
 
 <body>
     <header class="flex flex-col gap-[30px] mb-[30px]">
-        <div class="h-[30px] bg-[#E4FAF4] hidden sm:flex justify-center  ">
+        <!-- <div class="h-[30px] bg-[#E4FAF4] hidden sm:flex justify-center  ">
             <ul class="container flex justify-end items-center py-4 gap-4">
                 <li>
                     <a href="#" class="flex gap-3 p-2">
@@ -21,17 +21,70 @@
                 <li class="h-4 w-px bg-gray-400"></li>
                 <li><a><span class="hover:cursor-pointer">Blog</span></a></li>
                 <li class="h-4 w-px bg-gray-400"></li>
-                <li><a class="flex gap-1.5 hover:cursor-pointer">Language : <span class="font-medium">English</span><img src="./assets/dropdown.svg" alt="dropdown"></a></li>
+                 <li class="flex items-center">
+                    <span>Language : </span>
+                    <select onchange="updateSelection()" class="bg-transparent border-none outline-none focus:outline-none hover:cursor-pointer">
+                        <option value="english" selected>English</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="tamil">Tamil</option>
+                        <option value="telugu">Telugu</option>
+                        <option value="Kiliki">Kiliki</option>
+                        <option value="Martian">Martian</option>
+                        
+                    </select>
+                 </li>
+            </ul>
+        </div> -->
+        <div class="h-[30px] bg-[#E4FAF4] hidden sm:flex justify-center">
+            <ul class="container flex justify-end items-center py-4 gap-4">
+                <li>
+                    <a href="#" class="flex gap-3 p-2">
+                        <img src="./assets/phone.svg" alt="phone img">
+                        <span>Download App</span>
+                    </a>
+                </li>
+                <li class="h-4 w-px bg-gray-400"></li>
+                <li><a><span class="hover:cursor-pointer">Blog</span></a></li>
+                <li class="h-4 w-px bg-gray-400"></li>
+                <li class="flex items-center">
+                    <span>Language : </span>
+                    <div class="relative">
+                        <button id="dropdownLanguageButton" data-dropdown-toggle="dropdownLanguage" class="bg-transparent border-none outline-none hover:cursor-pointer flex items-center">
+                            <span>English</span>
+                            <svg class="w-4 h-4 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="dropdownLanguage" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLanguageButton">
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200" onclick="updateLanguage('English')">English</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200" onclick="updateLanguage('Hindi')">Hindi</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200" onclick="updateLanguage('Tamil')">Tamil</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200" onclick="updateLanguage('Telugu')">Telugu</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200" onclick="updateLanguage('Kiliki')">Kiliki</a></li>
+                                <li><a href="#" class="block px-4 py-2 hover:bg-gray-200" onclick="updateLanguage('Martian')">Martian</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
+        
+        <script>
+            function updateLanguage(language) {
+                document.getElementById('dropdownLanguageButton').querySelector('span').textContent = language;
+            }
+        </script>
+        
+        
         <div class="flex items-center justify-center p-4 sm:p-0" >
             <div class="container flex justify-between">
                 <img src="./assets/logo.svg" alt="logo">
                 
-                <ul class="hidden md:flex items-center gap-[26px]">
+                <ul class="hidden lg:flex items-center gap-[26px]">
                     <li><div class="content-center">
-                        <div class="flex gap-3 bg-[#F5F5F5] w-[250px] h-[42px] rounded-[6px] items-center justify-center p-3">
-                            <img src="./assets/search.svg" alt="search" class="w-[15px] h-[15px] ml-2.5">
+                        <div class="flex gap-3 bg-[#F5F5F5] w-[250px] h-[42px] rounded-[6px] items-center justify-center p-3 md:ml-4">
+                            <img src="./assets/search.svg" alt="search" class="w-[15px] h-[15px] ml-10">
                             <input type="search" placeholder="Search all mutal funds" class="bg-transparent border-none outline-none ">
                         </div>
                     </div>
@@ -41,22 +94,7 @@
                     <li><a class="hover:cursor-pointer">Ask the Expert</a></li>
                     <li><a><span class="font-medium hover:cursor-pointer">Login/Register</span></a></li>
                 </ul>
-
-
-                <!-- <details class="relative md:hidden">
-                    <summary class="flex flex-col space-y-1.5 w-[30px] h-[20px] hover:cursor-pointer">
-                        <div class="w-[30px] h-[3px] bg-black"></div>
-                        <div class="w-[30px] h-[3px] bg-black"></div>
-                        <div class="w-[30px] h-[3px] bg-black"></div>
-                    </summary>    
-                    <div class="md:hidden absolute right-0 mt-2 bg-white shadow-lg rounded-lg">
-                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:cursor-pointer">Learn with Fund Guru</a>
-                        <a href="#" class="block px-4 py-2 text-gray-800 hover:cursor-pointer z-10">Explore Funds</a>
-                        <a href="#" class="block px-4 py-2 text-gray-800 hover:cursor-pointer">Ask the Expert</a>
-                        <a href="#" class="block px-4 py-2 text-gray-800 font-medium hover:cursor-pointer">Login/Register</a>
-                    </div>
-                </details> -->
-                <details class="relative md:hidden">
+                <details class="relative lg:hidden">
                     <summary id="menu-toggle" class="block space-y-1.5 w-[30px] h-[20px] hover:cursor-pointer">
                       <div class="w-[30px] h-[3px] bg-black"></div>
                       <div class="w-[30px] h-[3px] bg-black"></div>
@@ -72,50 +110,52 @@
                   
             </div>
         </div>
-        <div class="s-container w-[100%] md:hidden">
-            <div class=" flex gap-3 bg-[#F5F5F5] h-[42px] rounded-[6px] items-center justify-center md:hidden">
+        <div class="s-container w-[100%] lg:hidden">
+            <div class=" flex gap-3 bg-[#F5F5F5] h-[42px] rounded-[6px] items-center justify-center lg:hidden">
                 <img src="./assets/search.svg" alt="search" class="w-[15px] h-[15px] ">
                 <input type="search" placeholder="Search all mutal funds" class="bg-transparent border-none outline-none hover:cursor-pointer">
             </div>
         </div>
     </header>
-    <section class="container mx-auto flex items-center justify-between gap-7 mb-10">
+    <section class="container mx-auto flex items-center justify-center lg:justify-between gap-7 mb-10">
         <div class="flex flex-col gap-7 mx-auto md:mx-0">
             <div>
-                <h1 class="w-[283px] md:w-[416px] h-[100px] text-[30px] md:text-[40px]">Investing made <span class="relative">
-                    <span
-                       class="absolute w-full h-2.5 bg-[#E4FAF4] left-0 bottom-0" >
-                   </span>
-                   <span class="relative z-10">Easy</span>
-                </span> for you</h1>
+                <h1 class="w-[283px] md:w-[416px] h-[100px] text-[30px] md:text-[40px]">Investing made 
+                    <span class="relative">
+                    <span class="absolute w-full h-2.5 bg-[#E4FAF4] left-0 bottom-0" ></span>
+                    <span class="relative z-10">Easy</span>
+                    </span> for you
+                </h1>
                 <p class="text-[17px] text-gray-500 w-[335px] h-[145px] md:w-[455px] md:h-[116px] mt-[50px]">India's fastest growing investment platform with <span class="font-medium">20 Lac+ users</span>. We use edge-cutting technology to ensure that your personal information is fully encrypted and securely stored.</p>
                 <button type="button" class="btn-primary w-[209px] h-[52px] my-[50px]">Get Started Now</button>
             </div>
         </div>
         <img src="./assets/banner1.jpg" alt="banner img" class="hidden lg:block w-[500px] h-[500px]">
     </section>
+    
     <section class="bg-[#E4FAF4]">
         <div class="max-sm:s-container p-4 md:p-0 md:container mx-auto flex flex-col md:flex-row justify-between">
             <div class="my-10 flex flex-col max-lg:mx-auto gap-14 md:gap-5">
                 <h1 class="text-[30px] text-black w-[313px] md:w-[394px] h-[39px]">Trusted by Millions of People</h1>
                 <p class="text-[17px] text-gray-500 w-[335px] md:w-[504px] h-[58px]">We are registered as a distributor with AMFI, as an investment advisor with SEBI and platform partners with BSE.</p>
             </div>
-            <div class="flex items-center max-lg:mx-auto gap-10 my-10">
-                <div class="w-[88px] md:w-[110px] h-[88px] md:h-[110px] justify-center items-center flex flex-col border-[1px] border-[#00D09C]/20">
+            <div class="flex items-center max-lg:mx-auto gap-10 md:gap-2 lg:gap-5 my-10">
+                <div class="w-[88px] lg:w-[110px] h-[88px] lg:h-[110px] justify-center items-center flex flex-col border-[1px] border-[#00D09C]/20">
                     <img src="./assets/Investing1.svg" alt="investing1" class="md:p-3 max-sm:w-11 max-sm:h-[45px]">
                     <p class="text-gray-500 text-sm max-sm:text-[11.2px] max-sm:px-5 max-sm:pt-2">ATR-823742</p>
                 </div>
-                <div class="w-[88px] md:w-[110px] h-[88px] md:h-[110px] justify-center items-center flex flex-col border-[1px] border-[#00D09C]/20">
+                <div class="w-[88px] lg:w-[110px] h-[88px] lg:h-[110px] justify-center items-center flex flex-col border-[1px] border-[#00D09C]/20">
                     <img src="./assets/Investing2.svg" alt="investing2" class="md:p-3 max-sm:w-11 max-sm:h-[45px]">
                     <p class="text-gray-500 text-sm max-sm:text-[11.2px] max-sm:px-5 max-sm:pt-2">INA2000382</p>
                 </div>
-                <div class="w-[88px] md:w-[110px] h-[88px] md:h-[110px] justify-center items-center flex flex-col border-[1px] border-[#00D09C]/20">
+                <div class="w-[88px] lg:w-[110px] h-[88px] lg:h-[110px] justify-center items-center flex flex-col border-[1px] border-[#00D09C]/20">
                     <img src="/assets/Investing3.svg" alt="investing3" class="md:p-3 max-sm:w-11 max-sm:h-[45px]">
                     <p class="text-gray-500 text-sm max-sm:text-[11.2px] smax-sm:px-1 max-sm:pt-2">M.Code 2384</p>
                 </div>
             </div>
         </div>
     </section>
+    
     <section>
         <div class="p-4 md:p-0 container mx-auto my-20 md:my-44  flex flex-col md:flex-row justify-around">
             <img src="./assets/Fund.svg" alt="fund" class="mx-auto max-md:w-[335px] max-md:h-[251px]">
@@ -135,26 +175,36 @@
             </div>
     </section>
     <section class="bg-gradient-to-b from-[#E4FAF4] to-white p-0 md:p-20 mb-20">
-        <div class="container p-4 md:p-0  mx-auto flex justify-between">
+        <div class="container p-4 md:p-0 mx-auto flex justify-between">
             <div class="flex flex-col lg:mt-[50px] max-lg:mx-auto gap-4">
                 <h1 class="text-3xl md:text-[40px] text-black max-sm:mt-[50px]">Ask the Expert</h1>
-                <p class="text-gray-500 max-sm:w-[335px] max-sm:h-[58px] ">You can schedule a meeting with an expense manager</p>
-                <div class="flex flex-col md:flex-row gap-5 md:mt-[50px]">
-                    <div class="max-w-[260px] max-h-[349px]">
-                        <div class="bg-[#E8F9F5] w-[62px] h-[62px] flex justify-center items-center"><img src="./assets/cash.svg" alt="cash" class=""></div>
-                        <h3 class="mb-5 max-sm:text-2xl max-sm:mt-[30px]">Investing made easy</h3>
-                        <p class="text-gray-500 mb-[50px] md:mb-[65px] max-sm:w-[335px]">Three simple options- cautions, balanced, adventurous.<br>Expert will take care of rest!</p>
+                <p class="text-gray-500 max-sm:w-[335px] max-sm:h-[58px]">You can schedule a meeting with an expense manager</p>
+                <div class="flex flex-col md:flex-row gap-5 md:mt-[50px] items-stretch">
+    
+                    <div class="max-w-[260px] max-h-[349px] flex flex-col justify-between">
+                        <div>
+                            <div class="bg-[#E8F9F5] w-[62px] h-[62px] flex justify-center items-center">
+                                <img src="./assets/cash.svg" alt="cash" class="">
+                            </div>
+                            <h3 class="mb-5 max-sm:text-2xl max-sm:mt-[30px]">Investing made easy</h3>
+                            <p class="text-gray-500 mb-[50px] md:mb-[65px] max-sm:w-[335px]">Three simple options- cautions, balanced, adventurous.<br>Expert will take care of rest!</p>
+                        </div>
                         <button type="button" class="btn-primary w-[159px] h-[52px]">Invest Now</button>
                     </div>
-                    <div class="max-w-[260px] max-h-[349px] max-sm:mt-[88px]">
-                        <div class="bg-[#E8F9F5] w-[62px] h-[62px] flex justify-center items-center"><img src="./assets/Schedule.svg" alt="calender" class=""></div>
-                        <h3 class="mb-5 max-sm:text-2xl max-sm:mt-[30px]">Schedule a meeting</h3>
-                        <p class="text-gray-500 mb-[65px] max-sm:w-[335px]">Expert will give you the best advice. Schedule a meeting with the expert to know mutual funds better.</p>
-                        <button type="button" class="btn-primary w-[186px] h-[52px]">Schedule Now</button>
+    
+                    <div class="max-w-[260px] max-h-[349px] flex flex-col justify-between">
+                        <div>
+                            <div class="bg-[#E8F9F5] w-[62px] h-[62px] flex justify-center items-center">
+                                <img src="./assets/Schedule.svg" alt="calender" class="">
+                            </div>
+                            <h3 class="mb-5 max-sm:text-2xl max-sm:mt-[30px]">Schedule a meeting</h3>
+                            <p class="text-gray-500 mb-[50px] md:mb-[65px] max-sm:w-[335px]">Expert will give you the best advice. Schedule a meeting with the expert to know mutual funds better.</p>
+                        </div>
+                        <button type="button" class="btn-primary w-[159px] h-[52px]">Schedule Now</button>
                     </div>
                 </div>
-            </div>  
-            <img src="./assets/Expert.png" alt="expert" class="max-lg:hidden ">
+            </div>
+            <img src="./assets/Expert.png" alt="expert" class="max-lg:hidden">
         </div>
     </section>
     <section class="bg-gradient-to-b from-white to-gray-100 pb-5 md:pb-[115px]">
@@ -166,10 +216,12 @@
                 <a href="" class="max-sm:w-[152px] max-sm:h-[46px]"><img src="./assets/app.svg" alt="app store"></a>
                 <a href="" class="max-sm:w-[152px] max-sm:h-[46px]"><img src="./assets/app2.svg" alt="play store"></a>
             </div>
-            <img src="./assets/chat.svg" alt="chat" class="absolute max-sm:bottom-24 bottom-[-40px] right-0 hover:cursor-pointer">
+            <!-- <img src="./assets/chat.svg" alt="chat" class="absolute max-sm:bottom-24 bottom-[-40px] right-0 hover:cursor-pointer"> -->
+            <img src="./assets/chat.svg" alt="chat" class="absolute max-md:bottom-24 md:bottom-[-40px]  right-0 hover:cursor-pointer">
+
         </div>
     </section>
-    <section class="mt-16">
+    <!-- <section class="mt-16">
         <div class="container p-4 md:p-0 flex flex-col md:flex-row justify-between mx-auto mb-5 max-sm:gap-[30px]">
             <div>
                 <img src="./assets/logo.png" alt="logo" >
@@ -215,22 +267,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="flex flex-col  gap-5 md:hidden">
-                <div class="flex justify-between items-center w-[100%] h-[52px] px-2.5 text-[17px] md:hidden border-[1px] border-[#F0F0F0]">
-                    <a href="" class="text-black font-bold">Quick links</a>
-                    <p class="text-gray-500">+</p>
-                </div>
-                <div class="flex justify-between items-center w-[100%] h-[52px] px-2.5 text-[17px] md:hidden border-[1px] border-[#F0F0F0]">
-                    <a href="" class="text-black font-bold">Top Funded Houses</a>
-                    <p class="text-gray-500">+</p>
-                </div>
-                <div class="flex justify-between items-center w-[100%] h-[52px] px-2.5 text-[17px] md:hidden border-[1px] border-[#F0F0F0]">
-                    <a href="" class="text-black font-bold">Resources</a>
-                    <p class="text-gray-500">+</p>
-                </div>
-            </div> -->
-
-            <!-- accordion -->
               
             <div class="flex flex-col gap-5 md:hidden">
                 <details class="border border-[#F0F0F0]">
@@ -275,11 +311,6 @@
                   </div>
                 </details>
               </div>
-               
-
-
-
-
             <div class="flex justify-between md:hidden">
                 
                 <div class="gap-[15px]">
@@ -300,7 +331,131 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    <section class="mt-16">
+        <div class="container p-4 md:p-0 flex flex-col md:flex-row justify-between mx-auto mb-5 max-sm:gap-[30px]">
+          <div>
+            <img src="./assets/logo.png" alt="logo">
+            <h2 class="text-3xl">Neo Funds</h2>
+          </div>
+      
+          <div class="md:flex gap-[60px] text-[17px] hidden">
+            <div class="flex flex-col">
+              <p class="font-bold">Quick Links</p>
+              <ul class="text-gray-500 mt-[15px] space-y-3">
+                <li><a href="">Explore Funds</a></li>
+                <li><a href="">Direct Mutual Funds</a></li>
+                <li><a href="">Personal Loan</a></li>
+                <li><a href="">LoanPass</a></li>
+              </ul>
+              <p class="font-bold mt-[15px]">Write to us at</p>
+              <p class="text-gray-500 mt-[15px]">contact@neofund.com</p>
+            </div>
+      
+            <div class="text-[17px]">
+              <p class="font-bold">Top Funded Houses</p>
+              <ul class="text-gray-500 mt-[15px] space-y-3">
+                <li><a href="">SBI Mutual Fund</a></li>
+                <li><a href="">HDFC Mutual Fund</a></li>
+                <li><a href="">Reliance Mutual Fund</a></li>
+                <li><a href="">L&T Mutual Fund</a></li>
+              </ul>
+              <p class="font-bold mt-[15px]">Call Us At</p>
+              <div class="gap-[15px]">
+                <p class="text-gray-500">+91-8130813864</p>
+                <p class="text-gray-500">+91-8860039452</p>
+              </div>
+            </div>
+      
+            <div class="text-[17px]">
+              <p class="font-bold">Resources</p>
+              <ul class="text-gray-500 mt-[15px] space-y-3">
+                <li><a href="">Calculators</a></li>
+                <li><a href="">Beginner’s Guide</a></li>
+                <li><a href="">Sitemap</a></li>
+              </ul>
+              <p class="font-bold mt-[50px] mb-[15px]">Download the App</p>
+              <div class="gap-[15px] flex">
+                <a href=""><img src="./assets/app3.svg" alt="apple"></a>
+                <a href=""><img src="./assets/app4.svg" alt="playstore"></a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="flex flex-col gap-5 md:hidden" id="accordion-open" data-accordion="open">
+            <h2 id="accordion-heading-1">
+              <button type="button" class="flex justify-between items-center w-full h-[52px] px-2.5 text-[17px] text-black font-bold border border-[#F0F0F0] hover:bg-gray-100 hover:cursor-pointer" data-accordion-target="#accordion-body-1" aria-expanded="false" aria-controls="accordion-body-1">
+                Quick links
+                <span class="text-gray-500">+</span>
+              </button>
+            </h2>
+            <div id="accordion-body-1" class="hidden" aria-labelledby="accordion-heading-1">
+              <div class="p-4 border-t border-[#F0F0F0]">
+                <ul class="text-gray-500 mt-[15px] space-y-3">
+                  <li><a href="">Explore Funds</a></li>
+                  <li><a href="">Direct Mutual Funds</a></li>
+                  <li><a href="">Personal Loan</a></li>
+                  <li><a href="">LoanPass</a></li>
+                </ul>
+              </div>
+            </div>
+      
+            <h2 id="accordion-heading-2">
+              <button type="button" class="flex justify-between items-center w-full h-[52px] px-2.5 text-[17px] text-black font-bold border border-[#F0F0F0] hover:bg-gray-100 hover:cursor-pointer" data-accordion-target="#accordion-body-2" aria-expanded="false" aria-controls="accordion-body-2">
+                Top Funded Houses
+                <span class="text-gray-500">+</span>
+              </button>
+            </h2>
+            <div id="accordion-body-2" class="hidden" aria-labelledby="accordion-heading-2">
+              <div class="p-4 border-t border-[#F0F0F0]">
+                <ul class="text-gray-500 mt-[15px] space-y-3">
+                  <li><a href="">SBI Mutual Fund</a></li>
+                  <li><a href="">HDFC Mutual Fund</a></li>
+                  <li><a href="">Reliance Mutual Fund</a></li>
+                  <li><a href="">L&T Mutual Fund</a></li>
+                </ul>
+              </div>
+            </div>
+      
+            <h2 id="accordion-heading-3">
+              <button type="button" class="flex justify-between items-center w-full h-[52px] px-2.5 text-[17px] text-black font-bold border border-[#F0F0F0] hover:bg-gray-100 hover:cursor-pointer" data-accordion-target="#accordion-body-3" aria-expanded="false" aria-controls="accordion-body-3">
+                Resources
+                <span class="text-gray-500">+</span>
+              </button>
+            </h2>
+            <div id="accordion-body-3" class="hidden" aria-labelledby="accordion-heading-3">
+              <div class="p-4 border-t border-[#F0F0F0]">
+                <ul class="text-gray-500 mt-[15px] space-y-3">
+                  <li><a href="">Calculators</a></li>
+                  <li><a href="">Beginner’s Guide</a></li>
+                  <li><a href="">Sitemap</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <div class="flex justify-between md:hidden">
+            <div class="gap-[15px]">
+              <p class="font-bold mt-[15px]">Call Us At</p>
+              <p class="text-gray-500">+91-8130813864</p>
+              <p class="text-gray-500">+91-8860039452</p>
+            </div>
+            <div>
+              <p class="font-bold mt-[15px]">Write to us at</p>
+              <p class="text-gray-500 mt-[15px]">contact@neofund.com</p>
+            </div>
+          </div>
+      
+          <div class="flex flex-col justify-center md:hidden">
+            <p class="font-bold mb-[15px] text-center">Download the App</p>
+            <div class="gap-[15px] flex justify-center">
+              <a href=""><img src="./assets/app3.svg" alt="apple"></a>
+              <a href=""><img src="./assets/app4.svg" alt="playstore"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     <hr class="w-[100%] h-px border-gray-200">
     <footer>
         <div class="container mx-auto  justify-between my-2.5 hidden md:flex">
@@ -323,7 +478,7 @@
             <p class="text-gray-500 text-xs">Copyright 2019 Mutal Funds. All rights reserved.</p>
         </div>
     </footer>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script> -->
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <!-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> -->
 </body>
 </html>
